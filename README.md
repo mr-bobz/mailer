@@ -1,6 +1,7 @@
 # Mailer Service (Email backend)
 
 This service is created using **Spring Boot** Framework. Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run".
+
 https://projects.spring.io/spring-boot/
 
 ### Features
@@ -10,6 +11,7 @@ https://projects.spring.io/spring-boot/
 * No code generation and no XML configuration
 
 This project uses **Maven** for dependency management & build. 
+
 https://maven.apache.org/
 
 ### How to Run
@@ -29,6 +31,7 @@ You can run the application using
 *NOTE*: Above commands assume you are in the *mailer* directory, where you cloned this.
 
 Or you can install STS (Spring Tool Suite), open this project and right click com/springboot/mailer/MailServiceApp.java and Select 'Java Application' or 'Spring Boot App'
+
 https://spring.io/tools/sts
 
 Maven dependencies often get corrupted when dowloading from various repos online. Try the following command to clean up or delete respective jars and rebuild.
@@ -39,6 +42,7 @@ Maven dependencies often get corrupted when dowloading from various repos online
 ### How to consume the service
 
 Use a tool like Postman or CURL and invoke as shown below
+
 https://www.getpostman.com/
 
 Method & URL 
