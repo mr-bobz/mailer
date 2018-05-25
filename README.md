@@ -64,3 +64,6 @@ text          | String          | Mail Content      | Required
 providerName  | String          | SendGrid/MailGun  | Optional
 
 
+### Additional Configuration
+Please provide valid keys in 
+>/mailer/src/main/java/com/springboot/mailer/send/providers/config.properties
