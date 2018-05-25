@@ -18,9 +18,13 @@ You can run the application using
   
   OR 
 * you can build the JAR file with 
-    >./mvnw clean package
+    >./mvnw clean 
+    
+    >./mvnw package 
+    
+    NOTE: if you run into errors, try skipping tests >mvn package -DskipTests
 * then you can run the JAR file:
-    >java -jar target/mailer-0.1.0.jar
+    >java -jar target/mailer-0.0.1-SNAPSHOT.jar
 
 *NOTE*: Above commands assume you are in the *mailer* directory, where you cloned this.
 
@@ -50,6 +54,11 @@ Body (Raw - JSON)
   "subject": "Hello There",
   "text" : "Congratulations, you just sent an email!  You are truly awesome!"
 }
+```
+
+CURL eg:
+```
+curl -H "Content-Type: application/json" -X POST -d '{"to": ["bobbyj79@gmail.com"],"subject": "Hello There","text" : "Congratulations, you just sent an email!  You are truly awesome!"}' http://localhost:8080/mail/send
 ```
 
 ### Valid arguments
