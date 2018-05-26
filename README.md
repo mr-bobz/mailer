@@ -24,7 +24,8 @@ You can run the application using
     
     >./mvnw package 
     
-    NOTE: if you run into errors, try skipping tests >mvn package -DskipTests
+    NOTE: if you run into errors, try skipping tests 
+    >mvn package -DskipTests
 * then you can run the JAR file:
     >java -jar target/mailer-0.0.1-SNAPSHOT.jar
 
@@ -46,7 +47,7 @@ Use a tool like Postman or CURL and invoke as shown below
 https://www.getpostman.com/
 
 Method & URL 
->POST http://localhost:8080/mail/send
+>POST http://localhost:5000/mail/send
 
 Headers 
 >Content-Type: application/json
@@ -62,7 +63,7 @@ Body (Raw - JSON)
 
 CURL eg:
 ```
-curl -H "Content-Type: application/json" -X POST -d '{"to": ["bobbyj79@gmail.com"],"subject": "Hello There","text" : "Congratulations, you just sent an email!  You are truly awesome!"}' http://localhost:8080/mail/send
+curl -H "Content-Type: application/json" -X POST -d '{"to": ["bobbyj79@gmail.com"],"subject": "Hello There","text" : "Congratulations, you just sent an email!  You are truly awesome!"}' http://localhost:5000/mail/send
 ```
 
 ### Valid arguments
@@ -79,4 +80,6 @@ providerName  | String          | SendGrid/MailGun  | Optional
 
 ### Additional Configuration
 Please provide valid keys in 
->/mailer/src/main/java/com/springboot/mailer/send/providers/config.properties
+>/mailer/src/main/resources/config.properties
+
+
