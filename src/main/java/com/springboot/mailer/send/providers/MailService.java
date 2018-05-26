@@ -24,13 +24,13 @@ public interface MailService {
 	public String getProviderName();
 
 	// load config
-	default public Properties loadConfig() throws IOException {
+	/*default public Properties loadConfig() throws IOException {
 		Properties prop = new Properties();
 		InputStream input = MailService.class.getResourceAsStream("config.properties");
 		prop.load(input);
 		input.close();
 		return prop;
-	}
+	}*/
 
 	// Adding some basic validations
 	default public void validate(MailContent mailContent) throws InvalidInputException {

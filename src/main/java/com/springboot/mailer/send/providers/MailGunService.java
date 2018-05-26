@@ -1,6 +1,9 @@
 package com.springboot.mailer.send.providers;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -26,6 +29,8 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
+@Configuration
+@PropertySource("classpath:config.properties")
 @Component
 public class MailGunService implements MailService{
 	
@@ -46,18 +51,20 @@ public class MailGunService implements MailService{
 	}
 	*/
 	
-	private String url;
-	private String apiKey;
 	private static final Logger log = LoggerFactory.getLogger(MailGunService.class);
 	private static final String providerName = "MailGun";
 	private static final String providerId = "MG";
+	@Value("${MG_URL}")
+	private String url;
+	@Value("${MG_KEY}")
+	private String apiKey;
 	
 	private final RestTemplate restTemplate;
 
 	public MailGunService(RestTemplateBuilder restTemplateBuilder) throws IOException {
-		Properties config = this.loadConfig();
+		/*Properties config = this.loadConfig();
 		this.url = config.getProperty(providerId+"_URL");
-		this.apiKey = config.getProperty(providerId+"_KEY");
+		this.apiKey = config.getProperty(providerId+"_KEY");*/
 		this.restTemplate = restTemplateBuilder
 								//.customizers(new LoggingCustomizer())
 								.basicAuthorization("api", apiKey)

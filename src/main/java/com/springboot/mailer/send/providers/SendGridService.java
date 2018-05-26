@@ -1,6 +1,9 @@
 package com.springboot.mailer.send.providers;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -22,6 +25,8 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@Configuration
+@PropertySource("classpath:config.properties")
 @Component
 public class SendGridService implements MailService {
 	
@@ -37,17 +42,19 @@ public class SendGridService implements MailService {
 	*/
 	
 	
-	private String url;
-	private String accessToken;
 	private static final Logger log = LoggerFactory.getLogger(SendGridService.class);
 	private static final String providerName = "SendGrid";
 	private static final String providerId = "SG";
+	@Value("${SG_URL}")
+	private String url;
+	@Value("${SG_KEY}")
+	private String accessToken;
 	
-	public SendGridService(RestTemplateBuilder restTemplateBuilder) throws IOException {
+	/*public SendGridService(RestTemplateBuilder restTemplateBuilder) throws IOException {
 		Properties config = this.loadConfig();
 		this.url = config.getProperty(providerId+"_URL");
 		this.accessToken = config.getProperty(providerId+"_KEY");
-	}
+	}*/
 	
 	@Override
 	public String getProviderName() {
