@@ -110,7 +110,7 @@ Annotations/Injections                                                  | Nuance
  ~ https://springframework.guru/spring-framework-annotations/           | ~ Challenging to find working version 
  ~ Very powerful and easy to use vs XML config etc                      | ~ Maven dependency corruptions (had to manually delete and redownload jars)
 All in One                                                              | NodeJS still faster/easier to develop, run and deploy! 
- ~ embedded web container to make stand alone apps (similar to NodeJS)  | Limited support by Cloud providers (Paas)
+ ~ embedded web container to make stand alone apps (similar to NodeJS)  | Limited support by Cloud providers (PaaS)
  Good documentaion                                                      | Still Buggy
 More disciplined (eg: MVC implied, type safety etc)                     | 
 Auto configuration and starter templates makes it easier to start       |
