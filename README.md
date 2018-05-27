@@ -38,7 +38,11 @@ https://spring.io/tools/sts
 Maven dependencies often get corrupted when dowloading from various repos online. Try the following command to clean up or delete respective jars and rebuild.
 > mvn dependency:purge-local-repository
 
-
+### Routes
+* /mail/send
+  * Sends email as per the args provided
+* /mail/status
+  * Quick health check
 
 ### How to consume the service
 
@@ -66,7 +70,10 @@ CURL eg:
 curl -H "Content-Type: application/json" -X POST -d '{"to": ["bobbyj79@gmail.com"],"subject": "Hello There","text" : "Congratulations, you just sent an email!  You are truly awesome!"}' http://localhost:5000/mail/send
 ```
 
+
+
 ### Valid arguments
+#### /mail/send
 
 Property      | Type            | Content           | Comments
 ------------  | -------------   | -------------     | -------------
@@ -77,9 +84,34 @@ subject       | String          | Mail Subject      | Optional
 text          | String          | Mail Content      | Required
 providerName  | String          | SendGrid/MailGun  | Optional
 
+#### /mail/status
+* No args
 
 ### Additional Configuration
-Please provide valid keys in 
+Please provide valid keys for mail providers in 
 >/mailer/src/main/resources/config.properties
 
+### TODO
+- [ ] Add Security 
 
+ - https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-security.html
+
+- [ ] More test coverage, including load/performance/security
+- [ ] Data Loss Prevention (DLP) - security, encryption, monitoring
+- [ ] API Versioning - better change management & maintenance
+- [ ] API Documentation - Swagger/YAML
+- [ ] Resiliency - throttling, limits, failover/fallbacks, reattempts on failure
+- [ ] Performance - batch requests, asynchronous
+
+### Spring Boot vs NodeJS
+Pros                                                                    | Cons            
+------------                                                            | -------------
+Annotations/Injections                                                  | Nuances of a large framework
+ ~ https://springframework.guru/spring-framework-annotations/           | ~ Challenging to find working version 
+ ~ Very powerful and easy to use vs XML config etc                      | ~ Maven dependency corruptions (had to manually delete and redownload jars)
+All in One                                                              | NodeJS still faster/easier to develop, run and deploy! 
+ ~ embedded web container to make stand alone apps (similar to NodeJS)  | Limited support by Cloud providers (Paas)
+ Good documentaion                                                      | Still Buggy
+More disciplined (eg: MVC implied, type safety etc)                     | 
+Auto configuration and starter templates makes it easier to start       |
+Master framework which combines  Spring, Spring MVC, Jackson (JSON Binding), Validation API, Embedded Web Container, Logging, Testing etc |
